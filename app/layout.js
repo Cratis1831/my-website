@@ -12,10 +12,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="">
       <body className={inter.className}>
         <Nav />
         {children}
+        <footer className="flex items-center justify-center">
+          <p className="text-sm text-zinc-700 dark:text-white font-light">
+            {new Date().getFullYear()}
+          </p>
+        </footer>
       </body>
     </html>
   );
