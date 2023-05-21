@@ -1,12 +1,15 @@
 import { BsCloudSun, BsPencil } from "react-icons/bs";
-
 import { MdFitnessCenter } from "react-icons/md";
-
-import React from "react";
 import Socials from "@/components/Socials";
 import ProjectCard from "@/components/ProjectCard";
 import Hero from "@/components/Hero";
+import { cookies } from "next/headers";
+
 export default function Home() {
+  // const cookieStore = cookies();
+  // console.log(cookieStore.getAll());
+  // console.log(getCookies());
+
   return (
     <main className="dark:bg-black bg-white text-zinc-900 dark:text-white p-4 mt-8">
       {/* Hero */}
