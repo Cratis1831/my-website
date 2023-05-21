@@ -18,11 +18,6 @@ export default function RootLayout({ children }) {
         {/* <CookieCard /> */}
         <Nav />
         {children}
-        <footer className="flex items-center justify-center">
-          <p className="text-sm text-zinc-700 dark:text-white font-light">
-            {new Date().getFullYear()}
-          </p>
-        </footer>
       </body>
     </html>
   );
