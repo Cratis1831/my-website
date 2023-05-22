@@ -15,8 +15,8 @@ const Nav = () => {
 
   const [theme, setTheme] = useState(
     typeof window !== "undefined"
-      ? localStorage.getItem("theme")
-      : null || "light"
+      ? localStorage.getItem("theme") || "light"
+      : null
   );
   useEffect(() => {
     typeof window !== "undefined" ? localStorage.setItem("theme", theme) : null;
