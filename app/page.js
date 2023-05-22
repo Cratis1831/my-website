@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <main
       id="home"
-      className={`dark:bg-black bg-white text-zinc-900 dark:text-white p-4 mt-8 transition-opacity ease-in duration-500 ${
+      className={`dark:bg-black dark:text-white bg-white text-zinc-900 p-4 transition-opacity ease-in duration-500 ${
         isMainVisible ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -32,7 +32,7 @@ export default function Home() {
       {/* Projects */}
       <section
         id="portfolio"
-        className="md:flex justify-center mt-4 p-20 md:gap-4 md:pt-10 space-y-4 md:space-y-0"
+        className="md:flex justify-center mt-4 p-20 md:gap-4 md:pt-10 space-y-4 md:space-y-0 dark:bg-black dark:text-white"
       >
         <ProjectCard
           title="Weather App"
@@ -40,7 +40,7 @@ export default function Home() {
           image={"/weather.png"}
           icon={
             <BsCloudSun
-              className="text-zinc-700 hover:text-zinc-900"
+              className="text-zinc-700 hover:text-zinc-900 dark:text-white"
               size={24}
             />
           }
@@ -51,7 +51,7 @@ export default function Home() {
           description="A simple weather web app created with NextJS using the Open Weather Map API."
           icon={
             <MdFitnessCenter
-              className="text-zinc-700 hover:text-zinc-900"
+              className="text-zinc-700 hover:text-zinc-900 dark:text-white"
               size={24}
             />
           }
@@ -61,7 +61,10 @@ export default function Home() {
           image={"/weather.png"}
           description="A simple weather web app created with NextJS using the Open Weather Map API."
           icon={
-            <BsPencil className="text-zinc-700 hover:text-zinc-900" size={24} />
+            <BsPencil
+              className="text-zinc-700 hover:text-zinc-900 dark:text-white"
+              size={24}
+            />
           }
         />
       </section>
@@ -72,8 +75,13 @@ export default function Home() {
       {/* Socials */}
       <Socials />
 
-      <div id="about" className="flex items-center justify-center pt-8 gap-8">
-        <p>Site Under Construction...</p>
+      <div
+        id="about"
+        className="flex items-center justify-center pt-8 gap-8 dark:bg-black dark:text-white"
+      >
+        <p className="dark:bg-black dark:text-white">
+          Site Under Construction...
+        </p>
       </div>
       {/* <footer className="flex items-center justify-center">
         <p className="text-sm text-zinc-700 dark:text-white font-light">
