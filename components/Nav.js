@@ -13,8 +13,13 @@ const Nav = () => {
     setIsMainVisible(true);
   }, []);
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(
+    typeof window !== "undefined"
+      ? localStorage.getItem("theme")
+      : null || "light"
+  );
   useEffect(() => {
+    typeof window !== "undefined" ? localStorage.setItem("theme", theme) : null;
     document.body.className = theme;
   }, [theme]);
 
@@ -27,7 +32,7 @@ const Nav = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-30 w-full backdrop-blur duration-1000 bg-zinc-100/0 dark:bg-[#0e0e10] dark:text-white">
+    <nav className="sticky top-0 z-30 w-full backdrop-blur bg-zinc-100/0 dark:bg-[#0e0e10] dark:text-white">
       <div
         className={`hidden md:flex md:items-center md:justify-between md:h-20 pr-20 lg:pr-40 md:gap-12 transition-opacity ease-in duration-500 ${
           isMainVisible ? "opacity-100" : "opacity-0"
