@@ -27,14 +27,20 @@ const Nav = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-30 w-full backdrop-blur duration-1000 bg-zinc-100/0 dark:bg-black dark:text-white">
+    <nav className="sticky top-0 z-30 w-full backdrop-blur duration-1000 bg-zinc-100/0 dark:bg-[#0e0e10] dark:text-white">
       <div
         className={`hidden md:flex md:items-center md:justify-between md:h-20 pr-20 lg:pr-40 md:gap-12 transition-opacity ease-in duration-500 ${
           isMainVisible ? "opacity-100" : "opacity-0"
         }`}
       >
         <div className="pl-4">
-          <Image src="/logo3.svg" width={50} height={50} alt="logo" />
+          <Image
+            src={`${theme === "light" ? "/logo3.svg" : "/logo_dark.svg"}`}
+            width={50}
+            height={50}
+            alt="logo"
+            className=""
+          />
         </div>
         <div className="md:flex md:items-center md:gap-12">
           <Link href="/">Home</Link>
