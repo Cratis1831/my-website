@@ -103,7 +103,7 @@ const Nav = () => {
       </div>
 
       {showMenu && (
-        <div className="flex flex-col items-center justify-center gap-4 text-xl">
+        <div className="flex flex-col items-center justify-center gap-4 text-xl ">
           <Link href="/" onClick={() => setShowMenu((prev) => !prev)}>
             Home
           </Link>

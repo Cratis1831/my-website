@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <main
       id="home"
-      className={`dark:bg-[#0e0e10] dark:text-white bg-white text-zinc-900 p-4 transition-opacity ease-in duration-500 ${
+      className={`dark:bg-[#0e0e10] dark:text-white bg-white text-zinc-900 p-4 transition-opacity ease-in duration-500 md:min-h-screen ${
         isMainVisible ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -69,9 +69,6 @@ export default function Home() {
         />
       </section>
 
-      {/* About */}
-      {/* <About /> */}
-
       {/* Socials */}
       <Socials />
 
@@ -83,11 +80,6 @@ export default function Home() {
           Site Under Construction...
         </p>
       </div>
-      {/* <footer className="flex items-center justify-center">
-        <p className="text-sm text-zinc-700 dark:text-white font-light">
-          {new Date().getFullYear()}
-        </p>
-      </footer> */}
     </main>
   );
 }
