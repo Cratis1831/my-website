@@ -13,7 +13,7 @@ const Nav = () => {
     setIsMainVisible(true);
   }, []);
 
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);
