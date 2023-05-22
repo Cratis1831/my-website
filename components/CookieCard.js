@@ -1,6 +1,5 @@
 "use client";
 import CookieConsent from "react-cookie-consent";
-import React from "react";
 
 const CookieCard = () => {
   return (
