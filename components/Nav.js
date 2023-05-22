@@ -66,12 +66,34 @@ const Nav = () => {
           </div>
         </div>
       </div>
-      <div className="md:hidden p-4">
+      <div className="md:hidden pl-4 pt-4 pr-8 flex justify-between gap-4">
         <HiMenu
           size={30}
-          className="text-zinc-900"
+          className="text-zinc-900 dark:text-white"
           onClick={() => setShowMenu((prev) => !prev)}
         />
+
+        <button
+          onClick={handleIconClick}
+          className="relative flex items-center justify-center "
+        >
+          <BsSunFill
+            size={20}
+            className={`absolute transition-opacity ease-in duration-500 ${
+              theme === "light"
+                ? "opacity-0 invisible"
+                : "opacity-100 transition-opacity"
+            }`}
+          />
+          <BsFillMoonFill
+            size={20}
+            className={`absolute transition-opacity ease-in duration-500 ${
+              theme === "dark"
+                ? "opacity-0 invisible"
+                : "opacity-100 transition-opacity"
+            }`}
+          />
+        </button>
       </div>
 
       {showMenu && (
