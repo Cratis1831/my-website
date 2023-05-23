@@ -8,15 +8,18 @@ import { HiMenu } from "react-icons/hi";
 const Nav = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isMainVisible, setIsMainVisible] = useState(false);
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
+    document.body.className = theme;
     setIsMainVisible(true);
-    localStorage.getItem("theme") === null
-      ? localStorage.setItem("theme", "light")
-      : setTheme(localStorage.getItem("theme"));
+    if (localStorage.getItem("theme") === null) {
+      localStorage.setItem("theme", "light");
+    } else {
+      setTheme(localStorage.getItem("theme"));
+    }
   }, []);
 
-  const [theme, setTheme] = useState(null);
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem("theme", theme);
