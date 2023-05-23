@@ -6,7 +6,7 @@ import ProjectCard from "@/components/ProjectCard";
 import Hero from "@/components/Hero";
 // import { cookies } from "next/headers";
 import { useEffect, useState } from "react";
-import About from "@/components/About";
+//import About from "@/components/About";
 
 export default function Home() {
   // const cookieStore = cookies();
@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <main
       id="home"
-      className={`dark:dark-bg dark:dark-text light-bg text-zinc-900 p-4 transition-opacity ease-in duration-500 md:min-h-screen ${
+      className={`light-bg dark:dark-bg dark:dark-text text-zinc-900 p-4 transition-opacity ease-in duration-500 md:min-h-screen ${
         isMainVisible ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -32,7 +32,7 @@ export default function Home() {
       {/* Projects */}
       <section
         id="portfolio"
-        className="md:flex justify-center mt-4 p-20 md:gap-4 md:pt-10 space-y-4 md:space-y-0 dark:dark-bg dark:dark-text"
+        className="md:flex justify-center mt-4 p-20 md:gap-4 md:pt-10 space-y-4 md:space-y-0 light-bg dark:dark-bg dark:dark-text"
       >
         <ProjectCard
           title="Weather App"
@@ -74,7 +74,7 @@ export default function Home() {
 
       <div
         id="about"
-        className="flex items-center justify-center pt-8 gap-8 dark:dark-bg dark:dark-text"
+        className="flex items-center justify-center pt-8 gap-8 light-bg dark:dark-bg dark:dark-text"
       >
         <p className="dark:dark-bg dark:dark-text">
           Site Under Construction...

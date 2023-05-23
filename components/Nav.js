@@ -1,16 +1,19 @@
 "use client";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 import { HiMenu } from "react-icons/hi";
+import { useTheme } from "next-themes";
 
 const Nav = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isMainVisible, setIsMainVisible] = useState(false);
-  const [theme, setTheme] = useState("light");
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     document.body.className = theme;
     setIsMainVisible(true);
     if (localStorage.getItem("theme") === null) {
@@ -33,8 +36,12 @@ const Nav = () => {
     }
   };
 
+  if (!mounted) {
+    return null;
+  }
+
   return (
-    <nav className="sticky top-0 z-30 w-full backdrop-blur dark:dark-bg dark:dark-text">
+    <nav className="sticky top-0 z-30 w-full backdrop-blur light-bg dark:dark-bg dark:dark-text">
       <div
         className={`hidden md:flex md:items-center md:justify-between md:h-20 pr-20 lg:pr-40 md:gap-12 transition-opacity ease-in duration-500 ${
           isMainVisible ? "opacity-100" : "opacity-0"
@@ -87,7 +94,7 @@ const Nav = () => {
               <BsFillMoonFill
                 size={20}
                 className={`absolute transition-opacity ease-in duration-500 ${
-                  theme === "light"
+                  theme !== "dark"
                     ? "opacity-100 transition-opacity"
                     : "opacity-0"
                 }`}
