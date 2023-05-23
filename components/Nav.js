@@ -11,16 +11,15 @@ const Nav = () => {
 
   useEffect(() => {
     setIsMainVisible(true);
+    localStorage.getItem("theme") === null
+      ? localStorage.setItem("theme", "light")
+      : setTheme(localStorage.getItem("theme"));
   }, []);
 
-  const [theme, setTheme] = useState(
-    typeof window !== "undefined"
-      ? localStorage.getItem("theme") || "light"
-      : null
-  );
+  const [theme, setTheme] = useState(null);
   useEffect(() => {
-    typeof window !== "undefined" ? localStorage.setItem("theme", theme) : null;
     document.body.className = theme;
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const handleIconClick = () => {
@@ -39,13 +38,23 @@ const Nav = () => {
         }`}
       >
         <div className="pl-4">
-          <Image
-            src={`${theme === "light" ? "/logo3.svg" : "/logo_dark.svg"}`}
-            width={50}
-            height={50}
-            alt="logo"
-            className=""
-          />
+          {theme === "light" ? (
+            <Image
+              src="/logo3.svg"
+              width={50}
+              height={50}
+              alt="logo"
+              className="w-50 h-50"
+            />
+          ) : (
+            <Image
+              src="/logo_dark.svg"
+              width={50}
+              height={50}
+              alt="logo"
+              className="w-50 h-50"
+            />
+          )}
         </div>
         <div className="md:flex md:items-center md:gap-12">
           <Link href="/">Home</Link>
@@ -57,20 +66,22 @@ const Nav = () => {
               onClick={handleIconClick}
               className="relative flex items-center justify-center "
             >
+              {/* show this when in dark mode */}
               <BsSunFill
                 size={20}
                 className={`absolute transition-opacity ease-in duration-500 ${
-                  theme === "light"
-                    ? "opacity-0 invisible"
-                    : "opacity-100 transition-opacity"
+                  theme === "dark"
+                    ? "opacity-100 transition-opacity"
+                    : "opacity-0"
                 }`}
               />
+              {/* show this when in light mode */}
               <BsFillMoonFill
                 size={20}
                 className={`absolute transition-opacity ease-in duration-500 ${
-                  theme === "dark"
-                    ? "opacity-0 invisible"
-                    : "opacity-100 transition-opacity"
+                  theme === "light"
+                    ? "opacity-100 transition-opacity"
+                    : "opacity-0"
                 }`}
               />
             </button>
