@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <main
       id="home"
-      className={`dark:bg-[#0e0e10] dark:text-white bg-white text-zinc-900 p-4 transition-opacity ease-in duration-500 md:min-h-screen ${
+      className={`dark:dark-bg dark:dark-text light-bg text-zinc-900 p-4 transition-opacity ease-in duration-500 md:min-h-screen ${
         isMainVisible ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -32,7 +32,7 @@ export default function Home() {
       {/* Projects */}
       <section
         id="portfolio"
-        className="md:flex justify-center mt-4 p-20 md:gap-4 md:pt-10 space-y-4 md:space-y-0 dark:bg-[#0e0e10] dark:text-white"
+        className="md:flex justify-center mt-4 p-20 md:gap-4 md:pt-10 space-y-4 md:space-y-0 dark:dark-bg dark:dark-text"
       >
         <ProjectCard
           title="Weather App"
@@ -40,7 +40,7 @@ export default function Home() {
           image={"/weather.png"}
           icon={
             <BsCloudSun
-              className="text-zinc-700 hover:text-zinc-900 dark:text-white"
+              className="text-zinc-700 hover:text-zinc-900 dark:dark-text"
               size={24}
             />
           }
@@ -51,7 +51,7 @@ export default function Home() {
           description="A simple weather web app created with NextJS using the Open Weather Map API."
           icon={
             <MdFitnessCenter
-              className="text-zinc-700 hover:text-zinc-900 dark:text-white"
+              className="text-zinc-700 hover:text-zinc-900 dark:dark-text"
               size={24}
             />
           }
@@ -62,7 +62,7 @@ export default function Home() {
           description="A simple weather web app created with NextJS using the Open Weather Map API."
           icon={
             <BsPencil
-              className="text-zinc-700 hover:text-zinc-900 dark:text-white"
+              className="text-zinc-700 hover:text-zinc-900 dark:dark-text"
               size={24}
             />
           }
@@ -74,9 +74,9 @@ export default function Home() {
 
       <div
         id="about"
-        className="flex items-center justify-center pt-8 gap-8 dark:bg-[#0e0e10] dark:text-white"
+        className="flex items-center justify-center pt-8 gap-8 dark:dark-bg dark:dark-text"
       >
-        <p className="dark:bg-[#0e0e10] dark:text-white">
+        <p className="dark:dark-bg dark:dark-text">
           Site Under Construction...
         </p>
       </div>

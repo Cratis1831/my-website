@@ -34,36 +34,41 @@ const Nav = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-30 w-full backdrop-blur bg-zinc-100/0 dark:bg-[#0e0e10] dark:text-white">
+    <nav className="sticky top-0 z-30 w-full backdrop-blur dark:dark-bg dark:dark-text">
       <div
         className={`hidden md:flex md:items-center md:justify-between md:h-20 pr-20 lg:pr-40 md:gap-12 transition-opacity ease-in duration-500 ${
           isMainVisible ? "opacity-100" : "opacity-0"
         }`}
       >
         <div className="pl-4">
-          {theme === "light" ? (
-            <Image
-              src="/logo3.svg"
-              width={50}
-              height={50}
-              alt="logo"
-              className="w-50 h-50"
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 750 893"
+            fill="#fff"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M288.753 161.008L324.26 45.7703L788.359 836.126L606.937 837.163L497.904 652.582L538.776 603.72L288.753 161.008Z"
+              stroke="#0e0e10"
+              stroke-width="15"
             />
-          ) : (
-            <Image
-              src="/logo_dark.svg"
-              width={50}
-              height={50}
-              alt="logo"
-              className="w-50 h-50"
+            <path
+              d="M356.806 403.747L261.832 234.939L78.439 838.964L222.437 838.141L356.806 403.747Z"
+              stroke="#0e0e10"
+              stroke-width="15"
             />
-          )}
+            <path
+              d="M468.005 614.314L391.183 482.615L277.249 837.828L468.005 614.314Z"
+              stroke="#0e0e10"
+              stroke-width="15"
+            />
+          </svg>
         </div>
         <div className="md:flex md:items-center md:gap-12">
           <Link href="/">Home</Link>
-          <Link href="/">Portfolio</Link>
-          <Link href="/">About</Link>
-          <Link href="/">Contact</Link>
+          <Link href="/portfolio">Portfolio</Link>
+          <Link href="/about">About</Link>
           <div className="flex items-center justify-center gap-4">
             <button
               onClick={handleIconClick}
@@ -94,7 +99,7 @@ const Nav = () => {
       <div className="md:hidden pl-4 pt-4 pr-8 flex justify-between gap-4">
         <HiMenu
           size={30}
-          className="text-zinc-900 dark:text-white"
+          className="text-zinc-900 dark:dark-text"
           onClick={() => setShowMenu((prev) => !prev)}
         />
 
