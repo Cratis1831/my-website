@@ -1,12 +1,11 @@
 "use client";
-import { BsCloudSun, BsPencil } from "react-icons/bs";
-import { MdFitnessCenter } from "react-icons/md";
+
 import Socials from "@/components/Socials";
-import ProjectCard from "@/components/ProjectCard";
 import Hero from "@/components/Hero";
-// import { cookies } from "next/headers";
 import { useEffect, useState } from "react";
+import ProjectCardGroup from "@/components/ProjectCardGroup";
 //import About from "@/components/About";
+// import { cookies } from "next/headers";
 
 export default function Home() {
   // const cookieStore = cookies();
@@ -19,67 +18,23 @@ export default function Home() {
     setIsMainVisible(true);
   }, []);
 
+  if (!isMainVisible) {
+    return null;
+  }
+
   return (
     <main
       id="home"
-      className={`light-bg dark:dark-bg dark:dark-text text-zinc-900 p-4 transition-opacity ease-in duration-500 md:min-h-screen ${
-        isMainVisible ? "opacity-100" : "opacity-0"
-      }`}
+      className={`overflow-x-hidden light-bg dark:dark-bg dark:dark-text text-zinc-900 p-4 md:min-h-screen`}
     >
       {/* Hero */}
       <Hero />
 
       {/* Projects */}
-      <section
-        id="portfolio"
-        className="md:flex justify-center mt-4 p-20 md:gap-4 md:pt-10 space-y-4 md:space-y-0 light-bg dark:dark-bg dark:dark-text"
-      >
-        <ProjectCard
-          title="Weather App"
-          description="A simple weather web app created with NextJS using the Open Weather Map API."
-          image={"/weather.png"}
-          icon={
-            <BsCloudSun
-              className="text-zinc-700 hover:text-zinc-900 dark:dark-text"
-              size={24}
-            />
-          }
-        />
-        <ProjectCard
-          title="Fitness App"
-          image={"/weather.png"}
-          description="A simple weather web app created with NextJS using the Open Weather Map API."
-          icon={
-            <MdFitnessCenter
-              className="text-zinc-700 hover:text-zinc-900 dark:dark-text"
-              size={24}
-            />
-          }
-        />
-        <ProjectCard
-          title="Todo App"
-          image={"/weather.png"}
-          description="A simple weather web app created with NextJS using the Open Weather Map API."
-          icon={
-            <BsPencil
-              className="text-zinc-700 hover:text-zinc-900 dark:dark-text"
-              size={24}
-            />
-          }
-        />
-      </section>
+      <ProjectCardGroup />
 
       {/* Socials */}
       <Socials />
-
-      <div
-        id="about"
-        className="flex items-center justify-center pt-8 gap-8 light-bg dark:dark-bg dark:dark-text"
-      >
-        <p className="dark:dark-bg dark:dark-text">
-          Site Under Construction...
-        </p>
-      </div>
     </main>
   );
 }
