@@ -5,12 +5,28 @@ import { useEffect, useState } from "react";
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 import { HiMenu } from "react-icons/hi";
 import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
 
 const Nav = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isMainVisible, setIsMainVisible] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const icon = {
+    hidden: { pathLength: 0, opacity: 0, fill: "rgba(255, 255, 255, 0)" },
+    visible: (i) => {
+      const delay = 1 + i * 0.5;
+      return {
+        pathLength: 1,
+        opacity: 1,
+        fill: "rgba(255, 255, 255, 1)",
+        transition: {
+          pathLength: { delay, type: "spring", duration: 1.5 },
+          opacity: { delay, duration: 0.01 },
+        },
+      };
+    },
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -52,23 +68,31 @@ const Nav = () => {
             width="50"
             height="50"
             viewBox="0 0 750 893"
-            fill="#fff"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
+            <motion.path
               d="M288.753 161.008L324.26 45.7703L788.359 836.126L606.937 837.163L497.904 652.582L538.776 603.72L288.753 161.008Z"
               stroke="#0e0e10"
               stroke-width="15"
+              variants={icon}
+              initial="hidden"
+              animate="visible"
             />
-            <path
+            <motion.path
               d="M356.806 403.747L261.832 234.939L78.439 838.964L222.437 838.141L356.806 403.747Z"
               stroke="#0e0e10"
               stroke-width="15"
+              variants={icon}
+              initial="hidden"
+              animate="visible"
             />
-            <path
+            <motion.path
               d="M468.005 614.314L391.183 482.615L277.249 837.828L468.005 614.314Z"
               stroke="#0e0e10"
               stroke-width="15"
+              variants={icon}
+              initial="hidden"
+              animate="visible"
             />
           </svg>
         </div>
@@ -109,6 +133,38 @@ const Nav = () => {
           className="text-zinc-900 dark:dark-text"
           onClick={() => setShowMenu((prev) => !prev)}
         />
+
+        <svg
+          width="50"
+          height="50"
+          viewBox="0 0 750 893"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <motion.path
+            d="M288.753 161.008L324.26 45.7703L788.359 836.126L606.937 837.163L497.904 652.582L538.776 603.72L288.753 161.008Z"
+            stroke="#0e0e10"
+            stroke-width="15"
+            variants={icon}
+            initial="hidden"
+            animate="visible"
+          />
+          <motion.path
+            d="M356.806 403.747L261.832 234.939L78.439 838.964L222.437 838.141L356.806 403.747Z"
+            stroke="#0e0e10"
+            stroke-width="15"
+            variants={icon}
+            initial="hidden"
+            animate="visible"
+          />
+          <motion.path
+            d="M468.005 614.314L391.183 482.615L277.249 837.828L468.005 614.314Z"
+            stroke="#0e0e10"
+            stroke-width="15"
+            variants={icon}
+            initial="hidden"
+            animate="visible"
+          />
+        </svg>
 
         <button
           onClick={handleIconClick}
