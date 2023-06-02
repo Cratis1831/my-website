@@ -4,6 +4,7 @@ import Socials from "@/components/Socials";
 import Hero from "@/components/Hero";
 import { useEffect, useState } from "react";
 import ProjectCardGroup from "@/components/ProjectCardGroup";
+
 //import About from "@/components/About";
 // import { cookies } from "next/headers";
 
